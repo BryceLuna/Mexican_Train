@@ -1,4 +1,5 @@
 import itertools
+import random
 
 class Domino(object):
     """
@@ -20,6 +21,18 @@ class Stack(object):
         self.dominos = []
         for dom in itertools.combinations_with_replacement(range(13),2):
             self.dominos.append(Domino(dom[0],dom[1]))
+
+    def shuffle(self):
+        random.shuffle(self.dominos)
+
+    def is_empty(self):
+        return self.dominos == []
+
+    def draw_domino(self):
+        if not self.is_empty():
+            return self.dominos.pop()
+
+
 
 
 if __name__ == "__main__":
