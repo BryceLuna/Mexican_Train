@@ -22,6 +22,9 @@ class Stack(object):
         for dom in itertools.combinations_with_replacement(range(13),2):
             self.dominos.append(Domino(dom[0],dom[1]))
 
+    def get_dominos(self):
+        return self.dominos
+
     def shuffle(self):
         random.shuffle(self.dominos)
 
@@ -32,7 +35,8 @@ class Stack(object):
         if not self.is_empty():
             return self.dominos.pop()
 
-
+    def __len__(self):
+        return len(self.dominos)
 
 
 if __name__ == "__main__":
